@@ -1,0 +1,83 @@
+- name: Install required dependencies
+  apt:
+    name:
+      - curl
+      - openssh-server
+      - ca-certificates
+      - tzdata
+      - perl
+    state: present
+    update_cache: yes
+
+- name: Download GitLab install script
+  get_url:
+    url: "https://packages.gitlab.com/install/repositories/gitlab/{{ gitlab_edition }}/script.deb.sh"
+    dest: /tmp/gitlab_install.sh
+    mode: '0755'
+
+- name: Run GitLab install script
+  command: bash /tmp/gitlab_install.sh
+
+- name: Install GitLab
+  apt:
+    name: "{{ gitlab_edition }}{{ '=' + gitlab_version if gitlab_version | length > 0 else '' }}"
+    state: present
+    update_cache: yes
+
+- name: Copy GitLab configuration
+  template:
+    src: "{{ gitlab_config_template }}"
+    dest: /etc/gitlab/gitlab.rb
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Reconfigure GitLab
+  ansible.builtin.command: gitlab-ctl reconfigure
+  register: reconfigure_output
+  changed_when: "'Chef Infra Client' in reconfigure_output.stdout"
+
+- name: Print GitLab reconfigure output
+  ansible.builtin.debug:
+    var: reconfigure_output.stdout_lines
+
+- name: Enable and start GitLab service
+  systemd:
+    name: gitlab-runsvdir
+    enabled: yes
+    state: started
+
+- name: Show GitLab service status
+  command: gitlab-ctl status
+  register: gitlab_status
+  changed_when: false
+  failed_when: false
+
+- name: Print GitLab service status
+  ansible.builtin.debug:
+    var: gitlab_status.stdout_lines
+
+
+- name: Show GitLab environment info
+  command: gitlab-rake gitlab:env:info
+  register: gitlab_env_info
+  changed_when: false
+  failed_when: false
+
+- name: Print GitLab environment info (clean output)
+  ansible.builtin.debug:
+    var: gitlab_env_info.stdout_lines
+
+
+- name: Read initial GitLab root password
+  slurp:
+    src: /etc/gitlab/initial_root_password
+  register: gitlab_root_pass_raw
+  failed_when: false
+  changed_when: false
+
+- name: Print GitLab root password (if present)
+  debug:
+    msg: "{{ gitlab_root_pass_raw['content'] | b64decode | regex_search('Password: (.*)', '\\1', multiline=True) }}"
+  when: gitlab_root_pass_raw['content'] is defined and gitlab_root_pass_raw['content'] | length > 0
+

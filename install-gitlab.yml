@@ -1,0 +1,6 @@
+- name: Install and Configure GitLab CE on Ubuntu
+  hosts: gitlab
+  become: yes
+
+  roles:
+    - gitlab
