@@ -1,0 +1,36 @@
+name: Deploy GitLab & Grafana
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      GRAFANA_SMTP_PASSWORD: ${{ secrets.GRAFANA_SMTP_PASSWORD }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python & Ansible
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ansible
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITLAB_SSH_PRIVATE_KEY }}" > ~/.ssh/Gitlab.pem
+          chmod 600 ~/.ssh/Gitlab.pem
+          ssh-keyscan -H ${{ secrets.GITLAB_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Render inventory.ini with IP from secrets
+        run: |
+          export GITLAB_HOST="${{ secrets.GITLAB_HOST }}"
+          envsubst < inventory.ini > inventory_rendered.ini
+
+      - name: Run Ansible playbook
+        run: |
+          ansible-playbook -i inventory_rendered.ini install-gitlab.yml --diff
