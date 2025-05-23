@@ -15,6 +15,14 @@
     dest: /tmp/gitlab_install.sh
     mode: '0755'
 
+- name: Add custom Prometheus scrape config
+  template:
+    src: prometheus.yml.j2
+    dest: /var/opt/gitlab/prometheus/prometheus.yml
+    owner: gitlab-prometheus
+    group: gitlab-prometheus
+    mode: '0644'
+
 - name: Run GitLab install script
   command: bash /tmp/gitlab_install.sh
 
