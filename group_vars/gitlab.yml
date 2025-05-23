@@ -10,6 +10,6 @@ gitlab_letsencrypt_email: dserbenyukgood@gmail.com
 
 
 grafana_enabled: true
-grafana_smtp_user: admin@grafana.localhost
+grafana_smtp_user: dserbenyukgood@gmail.com
 grafana_smtp_host: smtp.gmail.com:587
 grafana_smtp_password: "{{ lookup('env', 'GRAFANA_SMTP_PASSWORD') }}"
