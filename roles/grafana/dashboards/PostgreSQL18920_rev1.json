@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS__GITLAB OMNIBUS",
+      "name": "DS__GITLAB_OMNIBUS",
       "label": " GitLab Omnibus",
       "description": "",
       "type": "datasource",
@@ -95,7 +95,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "start time of the process",
       "fieldConfig": {
@@ -181,7 +181,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "min(pg_postmaster_start_time_seconds{instance=~\"$instance\"} * 1000)",
@@ -195,7 +195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "min(pg_postmaster_start_time_seconds{instance=~\"$instance\"} * 1000)",
@@ -211,7 +211,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -273,7 +273,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_shared_buffers_bytes{instance=~\"$instance\"}",
@@ -287,7 +287,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_buffers_bytes{instance=~\"$instance\"}",
@@ -299,7 +299,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_work_mem_bytes{instance=~\"$instance\"}",
@@ -311,7 +311,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_maintenance_work_mem_bytes{instance=~\"$instance\"}",
@@ -323,7 +323,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_temp_buffers_bytes{instance=~\"$instance\"}",
@@ -335,7 +335,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_buffers_bytes{instance=~\"$instance\"}",
@@ -347,7 +347,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_segment_size_bytes{instance=~\"$instance\"}",
@@ -359,7 +359,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_keep_segments{instance=~\"$instance\"}",
@@ -375,7 +375,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -437,7 +437,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_max_worker_processes{instance=~\"$instance\"}",
@@ -450,7 +450,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_max_parallel_workers{instance=~\"$instance\"}",
@@ -462,7 +462,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_max_parallel_workers_per_gather{instance=~\"$instance\"}",
@@ -478,7 +478,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -538,7 +538,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -553,7 +553,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_settings_max_connections{instance=~\"$instance\"}",
@@ -570,7 +570,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "Lag behind master in seconds.\n\nOnly available on a standby System.",
       "fieldConfig": {
@@ -639,7 +639,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "max(pg_replication_lag{instance=\"$instance\"})",
@@ -656,7 +656,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -716,7 +716,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_inserted{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -731,7 +731,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_updated{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -743,7 +743,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_deleted{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -755,7 +755,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_fetched{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -767,7 +767,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_returned{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -782,7 +782,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -836,7 +836,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_database_size_bytes{instance=~\"$instance\",datname!~\"template.*|postgres.*\"}) by (datname)",
@@ -863,7 +863,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -968,7 +968,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"})",
@@ -982,7 +982,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_settings_max_connections{instance=~\"$instance\"})",
@@ -996,7 +996,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"}) * 100 / sum(pg_settings_max_connections{instance=~\"$instance\"})",
@@ -1008,7 +1008,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\",state!~\"idle\"}) * 100 / sum(pg_stat_activity_count{instance=~\"$instance\"})",
@@ -1020,7 +1020,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"}) by (state)",
@@ -1036,7 +1036,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1105,7 +1105,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "pg_stat_database_blks_hit{instance=~\"$instance\",datname=~\"$datname\"} / (pg_stat_database_blks_read{instance=~\"$instance\"} + pg_stat_database_blks_hit{instance=~\"$instance\"})",
@@ -1149,7 +1149,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "1 Minute rate of transactions committed or rollback.",
       "fieldConfig": {
@@ -1235,7 +1235,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(rate(pg_stat_database_xact_commit{instance=~\"$instance\"}[1m])) by (datname) !=0",
@@ -1246,7 +1246,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(rate(pg_stat_database_xact_rollback{instance=~\"$instance\"}[1m])) by (datname) !=0",
@@ -1262,7 +1262,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1386,7 +1386,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_max_tx_duration{instance=~\"$instance\"}) by (datname)",
@@ -1404,7 +1404,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "Should be 0 \n\nSource: pg_stat_database\n\nWith log_lock_waits turned on, deadlocks will be logged to the PostgreSQL Logfiles.",
       "fieldConfig": {
@@ -1536,7 +1536,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum by (datname) (pg_stat_database_deadlocks{instance=~\"$instance\"})",
@@ -1551,7 +1551,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "Source: pg_locks",
       "fieldConfig": {
@@ -1639,7 +1639,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum by (mode) (pg_locks_count{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1680,7 +1680,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "description": "* blk_read_time: Time spent reading data file blocks by backends in this database, in milliseconds\n* blk_write_time: Time spent writing data file blocks by backends in this database, in milliseconds\n\ntrack_io_timings needs to be activated",
       "fieldConfig": {
@@ -1765,7 +1765,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum (pg_stat_database_blk_read_time{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1776,7 +1776,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "sum (pg_stat_database_blk_write_time{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1791,7 +1791,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB OMNIBUS}"
+        "uid": "${DS__GITLAB_OMNIBUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1875,7 +1875,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "irate(pg_stat_bgwriter_checkpoint_write_time_total{instance=~\"$instance\"}[5m])",
@@ -1888,7 +1888,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB OMNIBUS}"
+            "uid": "${DS__GITLAB_OMNIBUS}"
           },
           "exemplar": true,
           "expr": "irate(pg_stat_bgwriter_checkpoint_sync_time_total{instance=~\"$instance\"}[5m])",
@@ -1915,7 +1915,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS__GITLAB OMNIBUS}"
+          "uid": "${DS__GITLAB_OMNIBUS}"
         },
         "definition": "label_values(up{job=~'postgres'},instance)",
         "hide": 0,
@@ -1941,7 +1941,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS__GITLAB OMNIBUS}"
+          "uid": "${DS__GITLAB_OMNIBUS}"
         },
         "definition": "label_values(datname)",
         "description": "",
