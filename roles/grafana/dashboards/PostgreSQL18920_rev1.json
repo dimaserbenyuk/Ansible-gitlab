@@ -1,47 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS__GITLAB_OMNIBUS",
-      "label": " GitLab Omnibus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "10.0.1-cloud.1.d4a15e66"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -62,16 +19,11 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 24,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -80,22 +32,13 @@
       },
       "id": 93,
       "panels": [],
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-          },
-          "refId": "A"
-        }
-      ],
       "title": "Statistics",
       "type": "row"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "start time of the process",
       "fieldConfig": {
@@ -118,8 +61,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
-                "value": null
+                "color": "semi-dark-green"
               }
             ]
           },
@@ -159,13 +101,13 @@
         "y": 1
       },
       "id": 14,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -173,15 +115,17 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "value"
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "min(pg_postmaster_start_time_seconds{instance=~\"$instance\"} * 1000)",
@@ -195,7 +139,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "min(pg_postmaster_start_time_seconds{instance=~\"$instance\"} * 1000)",
@@ -211,7 +155,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -233,8 +177,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-blue",
-                "value": null
+                "color": "semi-dark-blue"
               }
             ]
           },
@@ -249,13 +192,13 @@
         "y": 1
       },
       "id": 40,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -263,17 +206,19 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {
           "valueSize": 30
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_shared_buffers_bytes{instance=~\"$instance\"}",
@@ -287,7 +232,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_buffers_bytes{instance=~\"$instance\"}",
@@ -299,7 +244,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_work_mem_bytes{instance=~\"$instance\"}",
@@ -311,7 +256,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_maintenance_work_mem_bytes{instance=~\"$instance\"}",
@@ -323,7 +268,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_temp_buffers_bytes{instance=~\"$instance\"}",
@@ -335,7 +280,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_buffers_bytes{instance=~\"$instance\"}",
@@ -347,7 +292,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_segment_size_bytes{instance=~\"$instance\"}",
@@ -359,7 +304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_wal_keep_segments{instance=~\"$instance\"}",
@@ -369,13 +314,14 @@
           "refId": "I"
         }
       ],
+      "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -397,8 +343,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-blue",
-                "value": null
+                "color": "semi-dark-blue"
               }
             ]
           },
@@ -413,13 +358,13 @@
         "y": 1
       },
       "id": 41,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -427,17 +372,19 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {
           "valueSize": 20
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_max_worker_processes{instance=~\"$instance\"}",
@@ -450,7 +397,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_max_parallel_workers{instance=~\"$instance\"}",
@@ -462,7 +409,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_max_parallel_workers_per_gather{instance=~\"$instance\"}",
@@ -472,13 +419,14 @@
           "refId": "C"
         }
       ],
+      "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -500,8 +448,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-yellow",
-                "value": null
+                "color": "light-yellow"
               }
             ]
           },
@@ -516,13 +463,13 @@
         "y": 5
       },
       "id": 33,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -530,15 +477,17 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "value_and_name"
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -553,7 +502,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_settings_max_connections{instance=~\"$instance\"}",
@@ -565,12 +514,13 @@
           "refId": "B"
         }
       ],
+      "title": "",
       "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "Lag behind master in seconds.\n\nOnly available on a standby System.",
       "fieldConfig": {
@@ -584,8 +534,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -618,12 +567,12 @@
       },
       "id": 79,
       "interval": "1m",
-      "links": [],
       "options": {
         "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -631,15 +580,17 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "value"
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "max(pg_replication_lag{instance=\"$instance\"})",
@@ -656,7 +607,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -678,8 +629,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-yellow",
-                "value": null
+                "color": "semi-dark-yellow"
               }
             ]
           },
@@ -694,13 +644,13 @@
         "y": 5
       },
       "id": 35,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -708,15 +658,17 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_inserted{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -731,7 +683,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_updated{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -743,7 +695,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_deleted{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -755,7 +707,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_fetched{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -767,7 +719,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_database_tup_returned{datname=~\"$datname\", instance=~\"$instance\"})",
@@ -777,12 +729,13 @@
           "refId": "E"
         }
       ],
+      "title": "",
       "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "",
       "fieldConfig": {
@@ -797,8 +750,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
-                "value": null
+                "color": "light-green"
               }
             ]
           },
@@ -813,12 +765,19 @@
         "y": 5
       },
       "id": 65,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
+        "namePlacement": "auto",
         "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
@@ -828,15 +787,16 @@
           "values": false
         },
         "showUnfilled": false,
+        "sizing": "auto",
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_database_size_bytes{instance=~\"$instance\",datname!~\"template.*|postgres.*\"}) by (datname)",
@@ -863,7 +823,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -871,11 +831,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -884,6 +846,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -905,8 +868,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -950,7 +912,6 @@
         "y": 9
       },
       "id": 17,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -959,16 +920,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"})",
@@ -982,7 +944,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_settings_max_connections{instance=~\"$instance\"})",
@@ -996,7 +958,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"}) * 100 / sum(pg_settings_max_connections{instance=~\"$instance\"})",
@@ -1008,7 +970,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\",state!~\"idle\"}) * 100 / sum(pg_stat_activity_count{instance=~\"$instance\"})",
@@ -1020,7 +982,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_count{instance=~\"$instance\"}) by (state)",
@@ -1036,7 +998,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -1051,8 +1013,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "semi-dark-red",
-                "value": null
+                "color": "semi-dark-red"
               },
               {
                 "color": "green",
@@ -1084,12 +1045,12 @@
         "y": 9
       },
       "id": 87,
-      "links": [],
       "options": {
         "colorMode": "background",
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1097,15 +1058,17 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
-        "textMode": "value_and_name"
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "pg_stat_database_blks_hit{instance=~\"$instance\",datname=~\"$datname\"} / (pg_stat_database_blks_read{instance=~\"$instance\"} + pg_stat_database_blks_hit{instance=~\"$instance\"})",
@@ -1122,10 +1085,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1134,22 +1093,13 @@
       },
       "id": 95,
       "panels": [],
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-          },
-          "refId": "A"
-        }
-      ],
       "title": "Transactions",
       "type": "row"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "1 Minute rate of transactions committed or rollback.",
       "fieldConfig": {
@@ -1158,11 +1108,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1171,6 +1123,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1193,8 +1146,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1213,7 +1165,6 @@
         "y": 18
       },
       "id": 83,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -1226,16 +1177,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(rate(pg_stat_database_xact_commit{instance=~\"$instance\"}[1m])) by (datname) !=0",
@@ -1246,7 +1198,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(rate(pg_stat_database_xact_rollback{instance=~\"$instance\"}[1m])) by (datname) !=0",
@@ -1262,7 +1214,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -1270,11 +1222,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1283,6 +1237,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1304,8 +1259,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1365,7 +1319,6 @@
         "y": 18
       },
       "id": 89,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
@@ -1377,16 +1330,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "desc"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum(pg_stat_activity_max_tx_duration{instance=~\"$instance\"}) by (datname)",
@@ -1404,7 +1358,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "Should be 0 \n\nSource: pg_stat_database\n\nWith log_lock_waits turned on, deadlocks will be logged to the PostgreSQL Logfiles.",
       "fieldConfig": {
@@ -1413,11 +1367,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1426,6 +1382,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1527,16 +1484,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum by (datname) (pg_stat_database_deadlocks{instance=~\"$instance\"})",
@@ -1551,7 +1509,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "Source: pg_locks",
       "fieldConfig": {
@@ -1560,11 +1518,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1573,6 +1533,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1630,16 +1591,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum by (mode) (pg_locks_count{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1653,10 +1615,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1665,22 +1623,13 @@
       },
       "id": 97,
       "panels": [],
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "b4a1b393-8d33-4418-91d7-947b390e37cd"
-          },
-          "refId": "A"
-        }
-      ],
       "title": "IO Stats",
       "type": "row"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "description": "* blk_read_time: Time spent reading data file blocks by backends in this database, in milliseconds\n* blk_write_time: Time spent writing data file blocks by backends in this database, in milliseconds\n\ntrack_io_timings needs to be activated",
       "fieldConfig": {
@@ -1689,11 +1638,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1702,6 +1653,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1756,16 +1708,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum (pg_stat_database_blk_read_time{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1776,7 +1729,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "sum (pg_stat_database_blk_write_time{instance=~\"$instance\",datname=~\"$datname\"})",
@@ -1791,7 +1744,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS__GITLAB_OMNIBUS}"
+        "uid": "DS__GITLAB_OMNIBUS"
       },
       "fieldConfig": {
         "defaults": {
@@ -1799,11 +1752,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1812,6 +1767,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1852,7 +1808,6 @@
         "y": 38
       },
       "id": 91,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
@@ -1866,16 +1821,17 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "10.0.1-cloud.1.d4a15e66",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "irate(pg_stat_bgwriter_checkpoint_write_time_total{instance=~\"$instance\"}[5m])",
@@ -1888,7 +1844,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS__GITLAB_OMNIBUS}"
+            "uid": "DS__GITLAB_OMNIBUS"
           },
           "exemplar": true,
           "expr": "irate(pg_stat_bgwriter_checkpoint_sync_time_total{instance=~\"$instance\"}[5m])",
@@ -1903,25 +1859,26 @@
       "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "5s",
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 41,
   "tags": [
     "postgresql"
   ],
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "text": "localhost:9187",
+          "value": "localhost:9187"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS__GITLAB_OMNIBUS}"
+          "uid": "DS__GITLAB_OMNIBUS"
         },
         "definition": "label_values(up{job=~'postgres'},instance)",
-        "hide": 0,
         "includeAll": false,
         "label": "Instance",
-        "multi": false,
         "name": "instance",
         "options": [],
         "query": {
@@ -1930,22 +1887,23 @@
         },
         "refresh": 2,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": [
+            "gitlabhq_production"
+          ],
+          "value": [
+            "gitlabhq_production"
+          ]
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS__GITLAB_OMNIBUS}"
+          "uid": "DS__GITLAB_OMNIBUS"
         },
         "definition": "label_values(datname)",
         "description": "",
-        "hide": 0,
         "includeAll": false,
         "label": "Database",
         "multi": true,
@@ -1957,12 +1915,8 @@
         },
         "refresh": 1,
         "regex": "/^(?!template)/",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -1970,25 +1924,9 @@
     "from": "now-1h",
     "to": "now"
   },
-  "timepicker": {
-    "hidden": false,
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "",
   "title": "GitLab JiHu - PostgreSQL",
-  "uid": "qFXnfIEGz",
-  "version": 4,
-  "weekStart": "",
-  "gnetId": 18920
+  "uid": "qFXnfIEGzfrf",
+  "version": 1
 }
