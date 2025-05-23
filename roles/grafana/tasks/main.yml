@@ -1,0 +1,110 @@
+- name: Install required tools for Grafana repo
+  apt:
+    name:
+      - apt-transport-https
+      - software-properties-common
+      - wget
+    state: present
+    update_cache: yes
+
+- name: Create APT keyrings directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Download and install Grafana GPG key
+  shell: |
+    wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor > /etc/apt/keyrings/grafana.gpg
+  args:
+    creates: /etc/apt/keyrings/grafana.gpg
+
+- name: Add Grafana APT repository
+  copy:
+    content: "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main\n"
+    dest: /etc/apt/sources.list.d/grafana.list
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Update APT cache after adding Grafana repo
+  apt:
+    update_cache: yes
+- name: Install Grafana
+  apt:
+    name: grafana
+    state: present
+    update_cache: yes
+
+- name: Configure grafana.ini
+  template:
+    src: grafana.ini.j2
+    dest: /etc/grafana/grafana.ini
+    owner: root
+    group: grafana
+    mode: '0644'
+  notify:
+    - Restart Grafana
+
+
+- name: Create provisioning directory for datasources
+  file:
+    path: /etc/grafana/provisioning/datasources
+    state: directory
+    owner: grafana
+    group: grafana
+    mode: '0755'
+
+- name: Configure Prometheus datasource provisioning
+  template:
+    src: prometheus.yaml.j2
+    dest: /etc/grafana/provisioning/datasources/prometheus.yaml
+    owner: grafana
+    group: grafana
+    mode: '0644'
+  notify:
+    - Restart Grafana
+
+- name: Create provisioning directory for dashboards
+  file:
+    path: /etc/grafana/provisioning/dashboards
+    state: directory
+    owner: grafana
+    group: grafana
+    mode: '0755'
+
+- name: Configure dashboard provisioning
+  template:
+    src: dashboards.yaml.j2
+    dest: /etc/grafana/provisioning/dashboards/dashboards.yaml
+    owner: grafana
+    group: grafana
+    mode: '0644'
+  notify: Restart Grafana
+
+- name: Create dashboards directory
+  file:
+    path: /var/lib/grafana/dashboards
+    state: directory
+    owner: grafana
+    group: grafana
+    mode: '0755'
+
+- name: Download Node Exporter Full dashboard JSON
+  get_url:
+    url: https://grafana.com/api/dashboards/1860/revisions/34/download
+    dest: /var/lib/grafana/dashboards/node-exporter-full.json
+    mode: '0644'
+  notify: Restart Grafana
+
+
+- name: Ensure Grafana is enabled and started
+  systemd:
+    name: grafana-server
+    enabled: yes
+    state: started
+
+- name: Restart Grafana
+  systemd:
+    name: grafana-server
+    state: restarted

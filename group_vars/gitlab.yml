@@ -7,3 +7,9 @@ gitlab_version: "18.0.1-ce.0"
 gitlab_backup_path: "/var/opt/gitlab/backups"
 gitlab_config_template: "gitlab.rb.j2"
 gitlab_letsencrypt_email: dserbenyukgood@gmail.com
+
+
+grafana_enabled: true
+grafana_smtp_user: admin@grafana.localhost
+grafana_smtp_host: smtp.gmail.com:587
+grafana_smtp_password: "{{ lookup('env', 'GRAFANA_SMTP_PASSWORD') }}"
