@@ -90,47 +90,54 @@
     group: grafana
     mode: '0755'
 
-- name: Download Node Exporter Full dashboard JSON
-  get_url:
-    url: https://grafana.com/api/dashboards/1860/revisions/34/download
-    dest: /var/lib/grafana/dashboards/node-exporter-full.json
-    mode: '0644'
-  notify: Restart Grafana
+- name: Copy dashboards
+  copy:
+    src: "{{ item }}"
+    dest: /var/lib/grafana/dashboards/
+  loop:
+    - dashboards/PostgreSQL18920_rev1.json
 
-- name: Download GitLab Redis dashboard
-  get_url:
-    url: https://grafana.com/api/dashboards/18922/revisions/1/download
-    dest: /var/lib/grafana/dashboards/gitlab-redis.json
-    mode: '0644'
-  notify: Restart Grafana
+# - name: Download Node Exporter Full dashboard JSON
+#   get_url:
+#     url: https://grafana.com/api/dashboards/1860/revisions/34/download
+#     dest: /var/lib/grafana/dashboards/node-exporter-full.json
+#     mode: '0644'
+#   notify: Restart Grafana
 
-- name: Download GitLab PostgreSQL dashboard
-  get_url:
-    url: https://grafana.com/api/dashboards/18920/revisions/1/download
-    dest: /var/lib/grafana/dashboards/gitlab-postgresql.json
-    mode: '0644'
-  notify: Restart Grafana
+# - name: Download GitLab Redis dashboard
+#   get_url:
+#     url: https://grafana.com/api/dashboards/18922/revisions/1/download
+#     dest: /var/lib/grafana/dashboards/gitlab-redis.json
+#     mode: '0644'
+#   notify: Restart Grafana
 
-- name: Download GitLab Gitaly dashboard
-  get_url:
-    url: https://grafana.com/api/dashboards/18917/revisions/1/download
-    dest: /var/lib/grafana/dashboards/gitlab-gitaly.json
-    mode: '0644'
-  notify: Restart Grafana
+# - name: Download GitLab PostgreSQL dashboard
+#   get_url:
+#     url: https://grafana.com/api/dashboards/18920/revisions/1/download
+#     dest: /var/lib/grafana/dashboards/gitlab-postgresql.json
+#     mode: '0644'
+#   notify: Restart Grafana
 
-- name: Download GitLab CI Jobs dashboard
-  get_url:
-    url: https://grafana.com/api/dashboards/13328/revisions/1/download
-    dest: /var/lib/grafana/dashboards/gitlab-ci-jobs.json
-    mode: '0644'
-  notify: Restart Grafana
+# - name: Download GitLab Gitaly dashboard
+#   get_url:
+#     url: https://grafana.com/api/dashboards/18917/revisions/1/download
+#     dest: /var/lib/grafana/dashboards/gitlab-gitaly.json
+#     mode: '0644'
+#   notify: Restart Grafana
 
-- name: Download GitLab Machine Performance dashboard
-  get_url:
-    url: https://grafana.com/api/dashboards/18914/revisions/1/download
-    dest: /var/lib/grafana/dashboards/gitlab-machine-performance.json
-    mode: '0644'
-  notify: Restart Grafana
+# - name: Download GitLab CI Jobs dashboard
+#   get_url:
+#     url: https://grafana.com/api/dashboards/13328/revisions/1/download
+#     dest: /var/lib/grafana/dashboards/gitlab-ci-jobs.json
+#     mode: '0644'
+#   notify: Restart Grafana
+
+# - name: Download GitLab Machine Performance dashboard
+#   get_url:
+#     url: https://grafana.com/api/dashboards/18914/revisions/1/download
+#     dest: /var/lib/grafana/dashboards/gitlab-machine-performance.json
+#     mode: '0644'
+#   notify: Restart Grafana
 
 - name: Ensure Grafana is enabled and started
   systemd:
